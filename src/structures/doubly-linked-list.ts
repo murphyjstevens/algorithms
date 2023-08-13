@@ -100,7 +100,7 @@ export default class DoublyLinkedList<T> {
 
   // Time complexity is O(n)
   insertAt(item: T, index: number): void {
-    if (!this.length || index > this.length || index < 0) {
+    if (index > this.length || index < 0) {
       throw 'Index is out of range'
     }
 
@@ -176,6 +176,7 @@ export default class DoublyLinkedList<T> {
           this.tail = node.prev
         }
 
+        this.length--
         return node.value
       }
     }
@@ -208,6 +209,7 @@ export default class DoublyLinkedList<T> {
       this.tail = node.prev
     }
 
+    this.length--
     return node.value
   }
 }
